@@ -8,9 +8,9 @@ This repository contains four progressive phases of Kubernetes learning, from ba
 
 ## Helpful Guides
 Before you start, check the helpful guides below:
-- **[Kubernetes Resources Guide](k8s-resources-guide.md)** - Complete reference for all Kubernetes resources
-- **[Kubectl Commands Guide](kubectl-cmds-guide.md)** - Essential kubectl commands and examples
-- **[Project Subject](en.subject.pdf)** - Project subject/requirements
+- **[Kubernetes Resources Guide](docs/k8s-resources-guide.md)** - Complete reference for all Kubernetes resources
+- **[Kubectl Commands Guide](docs/kubectl-cmds-guide.md)** - Essential kubectl commands and examples
+- **[Project Subject](docs/en.subject.pdf)** - Project subject/requirements
 
 ## Learning Phases
 
