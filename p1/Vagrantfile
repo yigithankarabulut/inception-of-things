@@ -1,0 +1,29 @@
+Vagrant.configure("2") do |config| # 2 is the version of the Vagrantfile. 1 represent 1.0.X version. 2 represent 1.1+ leading up 2.0.X version.
+    config.vm.box = "debian/bookworm64"
+
+    config.vm.define "ykarabulS" do |master|
+        master.vm.hostname = "ykarabulS"
+        master.vm.network "private_network", ip: "192.168.56.110"
+
+        master.vm.provider "virtualbox" do |vb|
+            vb.name = "ykarabulS"
+            vb.memory = "1024"
+            vb.cpus = 1
+        end
+
+        master.vm.provision "shell", path: "scripts/master_node.sh" # path or inline
+    end
+
+    config.vm.define "ykarabulSW" do |worker|
+        worker.vm.hostname = "ykarabulSW"
+        worker.vm.network "private_network", ip: "192.168.56.111"
+
+        worker.vm.provider "virtualbox" do |vb|
+            vb.name = "ykarabulSW"
+            vb.memory = "1024"
+            vb.cpus = 1
+        end
+
+        worker.vm.provision "shell", path: "scripts/worker_node.sh"
+    end
+end
