@@ -1,4 +1,4 @@
-# �� Kubernetes Resources Guide
+# Kubernetes Resources Guide
 
 ## **Basic Concepts**
 
@@ -8,7 +8,7 @@ There are various resource types for managing different workloads and services i
 
 ## **WORKLOAD RESOURCES**
 
-### 1. **Deployment**
+### 1. 📦 **Deployment**
 ```yaml
 apiVersion: apps/v1
 kind: Deployment
@@ -29,7 +29,7 @@ spec:
         image: nginx:1.20
 ```
 
-### 2. 🗄️ **StatefulSet Resource**
+### 2. 🗄️ **StatefulSet**
 ```yaml
 apiVersion: apps/v1
 kind: StatefulSet
@@ -51,7 +51,7 @@ spec:
         image: mysql:8.0
 ```
 
-### 3. ⚡ **Job Resource**
+### 3. ⚡ **Job**
 ```yaml
 apiVersion: batch/v1
 kind: Job
@@ -67,7 +67,7 @@ spec:
       restartPolicy: Never
 ```
 
-### 4. ⏰ **CronJob Resource**
+### 4. ⏰ **CronJob**
 ```yaml
 apiVersion: batch/v1
 kind: CronJob
@@ -86,7 +86,7 @@ spec:
           restartPolicy: OnFailure
 ```
 
-### 5. 🖥️ **DaemonSet Resource**
+### 5. 🖥️ **DaemonSet**
 ```yaml
 apiVersion: apps/v1
 kind: DaemonSet
@@ -108,9 +108,9 @@ spec:
 
 ---
 
-## 🌐 **SERVICE RESOURCES**
+## **SERVICE RESOURCES**
 
-### 6. �� **Service Resource**
+### 6. 🌐 **Service**
 ```yaml
 apiVersion: v1
 kind: Service
@@ -126,7 +126,7 @@ spec:
   type: ClusterIP
 ```
 
-### 7. 🌍 **Ingress Resource**
+### 7. 🌍 **Ingress**
 ```yaml
 apiVersion: networking.k8s.io/v1
 kind: Ingress
@@ -146,7 +146,7 @@ spec:
               number: 80
 ```
 
-### 8. **Endpoints Resource**
+### 8. 🔗 **Endpoints**
 ```yaml
 apiVersion: v1
 kind: Endpoints
@@ -160,7 +160,7 @@ subsets:
     name: http
 ```
 
-### 9. **EndpointSlice Resource**
+### 9. 🔗 **EndpointSlice**
 ```yaml
 apiVersion: discovery.k8s.io/v1
 kind: EndpointSlice
@@ -183,7 +183,7 @@ endpoints:
 
 ## **CONFIGURATION RESOURCES**
 
-### 10. ⚙️ **ConfigMap Resource**
+### 10. ⚙️ **ConfigMap**
 ```yaml
 apiVersion: v1
 kind: ConfigMap
@@ -195,7 +195,7 @@ data:
   log_level: "info"
 ```
 
-### 11. 🔐 **Secret Resource**
+### 11. 🔐 **Secret**
 ```yaml
 apiVersion: v1
 kind: Secret
@@ -207,7 +207,7 @@ data:
   password: cGFzc3dvcmQ=  # base64 encoded
 ```
 
-### 12. **ServiceAccount Resource**
+### 12. 🔑 **ServiceAccount**
 ```yaml
 apiVersion: v1
 kind: ServiceAccount
@@ -220,7 +220,7 @@ automountServiceAccountToken: true
 
 ## **STORAGE RESOURCES**
 
-### 13. 💾 **PersistentVolume (PV) Resource**
+### 13. 💾 **PersistentVolume (PV)**
 ```yaml
 apiVersion: v1
 kind: PersistentVolume
@@ -237,7 +237,7 @@ spec:
     path: /data/mysql
 ```
 
-### 14. �� **PersistentVolumeClaim (PVC) Resource**
+### 14. 💾 **PersistentVolumeClaim (PVC)**
 ```yaml
 apiVersion: v1
 kind: PersistentVolumeClaim
@@ -252,7 +252,7 @@ spec:
   storageClassName: local-storage
 ```
 
-### 15. **StorageClass Resource**
+### 15. 💾 **StorageClass**
 ```yaml
 apiVersion: storage.k8s.io/v1
 kind: StorageClass
@@ -264,9 +264,9 @@ volumeBindingMode: WaitForFirstConsumer
 
 ---
 
-## �� **GÜVENLİK RESOURCES**
+## **SECURITY RESOURCES**
 
-### 16. **Role Resource**
+### 16. 🔑 **Role**
 ```yaml
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
@@ -278,7 +278,7 @@ rules:
   verbs: ["get", "watch", "list"]
 ```
 
-### 17. **RoleBinding Resource**
+### 17. 🔑 **RoleBinding**
 ```yaml
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
@@ -294,7 +294,7 @@ roleRef:
   apiGroup: rbac.authorization.k8s.io
 ```
 
-### 18. **ClusterRole Resource**
+### 18. 🔑 **ClusterRole**
 ```yaml
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
@@ -306,7 +306,7 @@ rules:
   verbs: ["get", "watch", "list"]
 ```
 
-### 19. **ClusterRoleBinding Resource**
+### 19. 🔑 **ClusterRoleBinding**
 ```yaml
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
@@ -339,7 +339,7 @@ spec:
   - Egress
 ```
 
-### 21. **IngressClass Resource**
+### 21. 🌐 **IngressClass**
 ```yaml
 apiVersion: networking.k8s.io/v1
 kind: IngressClass
@@ -353,7 +353,7 @@ spec:
 
 ## **MONITORING RESOURCES**
 
-### 22. �� **HorizontalPodAutoscaler (HPA) Resource**
+### 22. 📊 **HorizontalPodAutoscaler (HPA)**
 ```yaml
 apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
@@ -375,7 +375,7 @@ spec:
         averageUtilization: 50
 ```
 
-### 23. **PodDisruptionBudget Resource**
+### 23. 📊 **PodDisruptionBudget**
 ```yaml
 apiVersion: policy/v1
 kind: PodDisruptionBudget
@@ -387,8 +387,6 @@ spec:
     matchLabels:
       app: nginx
 ```
-
----
 
 ## 📊 **COMPARISON TABLE**
 
@@ -402,86 +400,66 @@ spec:
 | **Service** | Service | Internal networking | Load balancing |
 | **Service** | Ingress | External access | HTTP routing |
 | **Service** | Endpoints | Service endpoints | External services |
+| **Service** | EndpointSlice | Modern endpoints | Service discovery |
 | **Config** | ConfigMap | Configuration | App settings |
 | **Config** | Secret | Sensitive data | Passwords, keys |
+| **Config** | ServiceAccount | Identity | Pod identity |
 | **Storage** | PV | Storage volumes | Disk space |
 | **Storage** | PVC | Storage requests | Volume claims |
+| **Storage** | StorageClass | Storage provisioning | Volume management |
 | **Security** | Role | Permissions | Access control |
-| **Security** | ServiceAccount | Identity | Pod identity |
+| **Security** | RoleBinding | Permission assignment | User access |
+| **Security** | ClusterRole | Cluster permissions | Cluster access |
+| **Security** | ClusterRoleBinding | Cluster assignment | Cluster access |
 | **Network** | NetworkPolicy | Network security | Traffic rules |
+| **Network** | IngressClass | Ingress config | Controller setup |
 | **Monitoring** | HPA | Auto scaling | CPU/Memory scaling |
-
----
-
-## 🛠️ **COMMANDS**
-
-### Temel Komutlar:
-```bash
-# Show all resources
-kubectl get all
-
-# Show specific categories
-kubectl get deployments,services,configmaps,secrets
-
-# List all resource types
-kubectl api-resources
-
-# Detailed information
-kubectl describe <resource-type> <name>
-```
-
-### Oluşturma Komutları:
-```bash
-# Create service
-kubectl create service clusterip nginx --tcp=80:8080
-
-# Create ConfigMap
-kubectl create configmap app-config --from-literal=key=value
-
-# Create Secret
-kubectl create secret generic app-secret --from-literal=username=admin
-
-# Create Ingress
-kubectl create ingress nginx-ingress --rule="example.com/*=nginx:80"
-```
-
----
+| **Monitoring** | PodDisruptionBudget | Availability | Disruption protection |
 
 ## 💡 **WHEN TO USE WHAT?**
 
-### **Application Running:**
+### 📦 **Application Running:**
 - **Deployment** → Web applications
 - **StatefulSet** → Databases
 - **Job** → One-time tasks
 - **CronJob** → Scheduled tasks
 - **DaemonSet** → Node services
 
-### 🌐 **Network Management:**
+### 🌐 **Service Management:**
 - **Service** → Internal load balancing
 - **Ingress** → External HTTP routing
 - **Endpoints** → External service endpoints
+- **EndpointSlice** → Modern service endpoints
+
+### 🌐 **Network Security:**
 - **NetworkPolicy** → Network security
+- **IngressClass** → Ingress controller configuration
 
 ### ⚙️ **Configuration:**
 - **ConfigMap** → Application settings
 - **Secret** → Sensitive data
 - **ServiceAccount** → Pod identity
 
-### �� **Storage:**
+### 💾 **Storage:**
 - **PV** → Storage volumes
 - **PVC** → Storage requests
 - **StorageClass** → Storage provisioning
 
-### �� **Security:**
+### 🔑 **Security:**
 - **Role** → Namespace permissions
 - **ClusterRole** → Cluster permissions
 - **RoleBinding** → Permission assignment
+- **ClusterRoleBinding** → Cluster-wide permission assignment
+
+### 📊 **Monitoring & Scaling:**
+- **HorizontalPodAutoscaler** → Auto scaling based on metrics
+- **PodDisruptionBudget** → Availability during disruptions
 
 ---
 
 ## 🚀 **PRACTICAL EXAMPLES**
 
-### Tam Stack Uygulama:
+### Full Stack Application:
 ```bash
 # 1. Create ConfigMap
 kubectl create configmap app-config --from-literal=database_url=mysql://localhost:3306
@@ -510,7 +488,7 @@ kubectl create pdb web-app-pdb --selector=app=web-app --min-available=1
 
 ---
 
-## �� **SUMMARY**
+## 💡 **SUMMARY**
 
 There are 20+ different resource types in Kubernetes:
 
@@ -521,5 +499,3 @@ There are 20+ different resource types in Kubernetes:
 - **Security** → Security
 - **Network** → Network security
 - **Monitoring** → Monitoring and scaling
-
-Each resource type meets a different need and when used together create powerful applications! 🚀

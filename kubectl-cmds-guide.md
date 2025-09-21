@@ -1,4 +1,4 @@
-# 🚀 Kubectl Commands Guide
+# Kubectl Commands Guide
 
 ## 🔍 **GET**
 ```bash
