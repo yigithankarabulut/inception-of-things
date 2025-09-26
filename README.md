@@ -15,9 +15,9 @@ Before you start, check the helpful guides below:
 ## Learning Phases
 
 ### Phase 1: Basic K3s Setup
-- **Goal**: Set up a basic K3s cluster
-- **Tools**: Vagrant, VirtualBox, K3s
-- **Focus**: Cluster initialization, node setup, and basic concepts
+- **Goal**: Set up a basic K3s cluster.
+- **Tools**: Vagrant, VirtualBox, K3s.
+- **Focus**: Cluster initialization, node setup, and basic concepts.
 
 ### Phase 2: Application Deployment And Ingress
 - **Goal**: Deploy applications using Kubernetes manifests
