@@ -3,7 +3,7 @@ Vagrant.configure("2") do |config| # 2 is the version of the Vagrantfile. 1 repr
 
     config.vm.define "ykarabulS" do |master|
         master.vm.hostname = "ykarabulS"
-        master.vm.network "private_network", ip: "192.168.56.110"
+        master.vm.network "private_network", ip: "192.168.56.110", type: "static"
 
         master.vm.provider "virtualbox" do |vb|
             vb.name = "ykarabulS"
@@ -16,7 +16,7 @@ Vagrant.configure("2") do |config| # 2 is the version of the Vagrantfile. 1 repr
 
     config.vm.define "ykarabulSW" do |worker|
         worker.vm.hostname = "ykarabulSW"
-        worker.vm.network "private_network", ip: "192.168.56.111"
+        worker.vm.network "private_network", ip: "192.168.56.111", type: "static"
 
         worker.vm.provider "virtualbox" do |vb|
             vb.name = "ykarabulSW"

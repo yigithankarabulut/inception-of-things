@@ -1,0 +1,106 @@
+global:
+  edition: ce
+  hosts:
+    domain: ykarabul.com
+    https: false
+  ingress:
+    enabled: false
+    tls:
+      enabled: false
+  minio:
+    enabled: true
+  appConfig:
+    lfs:
+      enabled: false
+    artifacts:
+      enabled: false
+    uploads:
+      enabled: false
+    packages:
+      enabled: false
+
+certmanager:
+  install: false
+
+certmanager-issuer:
+  enabled: false
+  email: admin@gitlab.ykarabul.com
+
+nginx-ingress:
+  enabled: false
+
+redis:
+  install: true
+
+postgresql:
+  install: true
+  postgresqlPassword: gitlab123
+  persistence:
+    size: 2Gi
+
+webservice:
+  replicaCount: 1
+  resources:
+    requests:
+      cpu: 100m
+      memory: 512Mi
+    limits:
+      cpu: 500m
+      memory: 768Mi
+
+sidekiq:
+  replicaCount: 1
+  resources:
+    requests:
+      cpu: 50m
+      memory: 256Mi
+    limits:
+      cpu: 200m
+      memory: 512Mi
+
+gitlab-shell:
+  replicaCount: 1
+  resources:
+    requests:
+      cpu: 50m
+      memory: 128Mi
+    limits:
+      cpu: 200m
+      memory: 256Mi
+
+gitaly:
+  persistence:
+    enabled: true
+    size: 5Gi
+  resources:
+    requests:
+      cpu: 100m
+      memory: 256Mi
+    limits:
+      cpu: 500m
+      memory: 512Mi
+
+gitlab:
+  toolbox:
+    enabled: true
+
+gitlab-runner:
+  install: false
+
+registry:
+  enabled: true
+
+prometheus:
+  install: false
+
+grafana:
+  enabled: false
+
+gitlab-kas:
+  enabled: true
+
+gitlab-pages:
+  enabled: false
+
+gitlab-exporter:
+  enabled: false

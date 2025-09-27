@@ -125,6 +125,20 @@ function install_virtualbox()
     fi
 }
 
+function install_helm()
+{
+    if ! has_command helm; then
+        echo "Installing Helm..."
+        curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
+        chmod 700 get_helm.sh
+        ./get_helm.sh
+        rm get_helm.sh
+
+        echo "Helm installed."
+
+    fi
+}
+
 install_curl
 install_docker
 install_kubectl
@@ -132,3 +146,4 @@ install_k3d
 install_argocd
 install_vagrant
 install_virtualbox
+install_helm
